@@ -45,11 +45,14 @@ function checkKey(key){
                     lines[i] = key;
                 }
             }
+            if(lines.join("") === chosenWord){
+                winningGame();
+            }
         }
     } else {
         if(!user.previousGuesses.includes(key)){
             user.previousGuesses.push(key);
-            handleMissedGuess()
+            handleMissedGuess();
         }
     }
 }
@@ -59,16 +62,23 @@ function handleMissedGuess(){
     user.guessesLeft--;
     if(user.guessesLeft < 1){
         setupNewWord();
+        user.losses++;
         user.previousGuesses = [];
         user.guessesLeft = 15;
     }
 }
 
+// if the user wins the game do the below
+function winningGame(){
+    user.wins++;
+    setupNewWord();
+    user.previousGuesses = [];
+    user.guessesLeft = 15;
+}
 
 //display info on the page
 function updatePage(){
-    console.log(
-        `
+    console.log(`
         word: ${chosenWord}
         lines: ${lines.join("")}
 
@@ -76,6 +86,5 @@ function updatePage(){
         losses: ${user.losses}
         triesLeft: ${user.guessesLeft}
         previous Guesses: ${user.previousGuesses}
-        `
-    )
+        `)
 }
