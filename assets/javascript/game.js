@@ -10,7 +10,7 @@ const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 
 //delaire variables related to the computer chosing a word
 let lines = [];
-let chosenWord = "";
+let chosenWord = null;
 let previousWord = null;
 
 //get the elements of the html file
@@ -19,7 +19,7 @@ const chatWindowDiv = document.getElementById("chat-window");
 
 //creates the lines array for the current word
 function setupNewWord(){
-    previousWord = chosenWord;
+    if(chosenWord !== null) previousWord = chosenWord;
     chosenWord = words[Math.floor(Math.random() * words.length)];
     lines = [];
     for (let i = 0; i<chosenWord.length;i++){
