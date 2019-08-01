@@ -11,13 +11,26 @@ const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 //delaire variables related to the computer chosing a word
 let lines = [];
 let chosenWord = "";
+let previousWord = null;
+
+//get the elements of the html file
+const previousWordDiv = document.getElementById("previous-word-text");
+const chatWindowDiv = document.getElementById("chat-window");
 
 //creates the lines array for the current word
 function setupNewWord(){
+    previousWord = chosenWord;
     chosenWord = words[Math.floor(Math.random() * words.length)];
     lines = [];
     for (let i = 0; i<chosenWord.length;i++){
         lines.push("_");
+    }
+    if (previousWord !== null) {
+        previousWordDiv.innerHTML = `
+        <h2>
+            Previous Word: ${previousWord}
+        </h2>
+        `;
     }
 }
 
@@ -78,13 +91,13 @@ function winningGame(){
 
 //display info on the page
 function updatePage(){
-    console.log(`
-        word: ${chosenWord}
-        lines: ${lines.join("")}
-
-        wins: ${user.wins}
-        losses: ${user.losses}
-        triesLeft: ${user.guessesLeft}
-        previous Guesses: ${user.previousGuesses}
-        `)
+    chatWindowDiv.innerHTML = `
+        <h3>
+            ${lines.join(" ")} <br><br>
+            Wins: ${user.wins}<br>
+            Losses: ${user.losses}<br>
+            Attempts Remaining: ${user.guessesLeft}<br><br>
+            Guesses: ${user.previousGuesses}
+        </h3>
+    `;
 }
