@@ -12,6 +12,7 @@ const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p"
 let lines = [];
 let chosenWord = null;
 let previousWord = null;
+let errMessage = "";
 
 //get the elements of the html file
 const previousWordDiv = document.getElementById("previous-word-text");
@@ -41,10 +42,11 @@ updatePage();
 //when someone presses a button
 document.onkeyup = function(event){
     let key = event.key.toLocaleLowerCase();
+    errMessage = "";
     if(letters.includes(key)){
         checkKey(key);
     } else {
-
+        errMessage = `<a class="error-message">ERROR: you have pressed an incorrect key: ${key}</a>`;
     }
     updatePage()
 }
@@ -87,6 +89,7 @@ function winningGame(){
     setupNewWord();
     user.previousGuesses = [];
     user.guessesLeft = 8;
+    errMessage = `<a class="winning-message">WINNNER! Press any key to play again!</a>`;
 }
 
 //display info on the page
@@ -97,7 +100,8 @@ function updatePage(){
             Wins: ${user.wins}<br>
             Losses: ${user.losses}<br>
             Attempts Remaining: ${user.guessesLeft}<br><br>
-            Guesses: ${user.previousGuesses.join(" ")}
+            Guesses: ${user.previousGuesses.join(" ")}<br><br>
+            ${errMessage}
         </h3>
     `;
 }
