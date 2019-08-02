@@ -77,7 +77,7 @@ function handleMissedGuess(){
         setupNewWord();
         user.losses++;
         user.previousGuesses = [];
-        user.guessesLeft = 15;
+        user.guessesLeft = 8;
     }
 }
 
@@ -86,7 +86,7 @@ function winningGame(){
     user.wins++;
     setupNewWord();
     user.previousGuesses = [];
-    user.guessesLeft = 15;
+    user.guessesLeft = 8;
 }
 
 //display info on the page
