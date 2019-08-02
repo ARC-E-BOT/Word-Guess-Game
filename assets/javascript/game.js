@@ -2,7 +2,7 @@
 const user = {
     wins: 0,
     losses: 0,
-    guessesLeft: 15,
+    guessesLeft: 8,
     previousGuesses: []
 };
 const words = ["dirt","stone","cobblestone","sand","obsidian","mycelium","creeper","skeleton","cow","wither","grass","iron","gold","diamond","redstone","coal","pickaxe","wood","wool"];
