@@ -5,7 +5,7 @@ const user = {
     guessesLeft: 15,
     previousGuesses: []
 };
-const words = ["dirt","stone","cobblestone","sand","obsidian","mycelium","creeper","skeliton","cow","wither","grass","iron","gold","diamond","redstone","coal","pickaxe","wood","wool"];
+const words = ["dirt","stone","cobblestone","sand","obsidian","mycelium","creeper","skeleton","cow","wither","grass","iron","gold","diamond","redstone","coal","pickaxe","wood","wool"];
 const letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
 //delaire variables related to the computer chosing a word
