@@ -97,7 +97,7 @@ function updatePage(){
             Wins: ${user.wins}<br>
             Losses: ${user.losses}<br>
             Attempts Remaining: ${user.guessesLeft}<br><br>
-            Guesses: ${user.previousGuesses}
+            Guesses: ${user.previousGuesses.join(" ")}
         </h3>
     `;
 }
